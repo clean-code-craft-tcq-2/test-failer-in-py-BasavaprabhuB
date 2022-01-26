@@ -1,11 +1,6 @@
 alert_failure_count = 0
 
-def network_alert_stub(celcius):
-    print(f'ALERT: Temperature is {celcius} celcius')
-    # Return 200 for ok
-    # Return 500 for not-ok
-    # stub always succeeds and returns 200
-    return 200
+from alerter_stub import network_alert_stub
 
 def alert_in_celcius(farenheit):
     celcius = (farenheit - 32) * 5 / 9
@@ -17,6 +12,7 @@ def alert_in_celcius(farenheit):
         # Add a test below to catch this bug. Alter the stub above, if needed.
         global alert_failure_count
         alert_failure_count += 0
+        assert alert_failure_count != 0, "Failed to count the alert-failure!"
 
 
 alert_in_celcius(400.5)
